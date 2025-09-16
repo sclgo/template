@@ -30,8 +30,7 @@ jobs:
         make test
     - name: Checks
       run: |
-        sudo apt-get install moreutils -y
-        make check_vuln check_tidy
+        make checks
 
   # platforms:
   #   runs-on: ${{ matrix.os }}
