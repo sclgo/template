@@ -1,7 +1,7 @@
 tools/ts:
 	mkdir -p tools
 	curl -L -o tools/ts https://github.com/pgdr/moreutils/raw/a87889a3bf06fb6be6022b14c152f2f7de608910/ts
-	@echo "5369255252856847959250559657008535288592f87961732c58614992543415  tools/ts" | sha256sum --check --strict
+	@echo "96a9504920a81570e0fc5df9c7a8be76b043261d9ed4a702af0238bdbe5ad5ea  tools/ts" | sha256sum --check --strict
 	chmod +x tools/ts
 
 .PHONY: test
