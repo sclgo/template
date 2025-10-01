@@ -1,4 +1,5 @@
 #!/usr/bin/env perl
+# Copied from https://github.com/pgdr/moreutils/blob/a87889a3bf06fb6be6022b14c152f2f7de608910/ts
 
 =head1 NAME
 
