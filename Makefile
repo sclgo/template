@@ -1,5 +1,10 @@
+tools/ts:
+	mkdir -p tools
+	wget -O tools/ts https://github.com/pgdr/moreutils/raw/a87889a3bf06fb6be6022b14c152f2f7de608910/ts
+	chmod +x tools/ts
+
 .PHONY: test
-test:
+test: tools/ts
 	mkdir -p coverage/covdata
 # Use the new binary format to ensure integration tests and cross-package calls are counted towards coverage
 # https://go.dev/blog/integration-test-coverage
