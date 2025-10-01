@@ -1,5 +1,12 @@
+tools/ts:
+# ts is a perl script. perl is installed on most linux systems, and in ubuntu Github runners.
+	mkdir -p tools
+	curl -L -o tools/ts https://github.com/pgdr/moreutils/raw/a87889a3bf06fb6be6022b14c152f2f7de608910/ts
+	@echo "96a9504920a81570e0fc5df9c7a8be76b043261d9ed4a702af0238bdbe5ad5ea  tools/ts" | sha256sum --check --strict
+	chmod +x tools/ts
+
 .PHONY: test
-test:
+test: tools/ts
 	mkdir -p coverage/covdata
 # Use the new binary format to ensure integration tests and cross-package calls are counted towards coverage
 # https://go.dev/blog/integration-test-coverage
@@ -7,8 +14,8 @@ test:
 	go test -race -cover -covermode atomic -v -vet=all -timeout 15m -p 1\
 		./... \
 		-args -test.gocoverdir="${PWD}/coverage/covdata" \
-		| ts -s
-# NB: ts command requires moreutils package; awk trick from https://stackoverflow.com/a/25764579 doesn't stream output
+		| tools/ts -s
+
 	go tool covdata percent -i=./coverage/covdata
 	# Convert to old text format for coveralls upload
 	go tool covdata textfmt -i=./coverage/covdata -o ./coverage/covprofile
@@ -41,4 +48,4 @@ check_tidy:
 check_modern:
 	go run golang.org/x/tools/gopls/internal/analysis/modernize/cmd/modernize@v0.20.0 ./...
 # non-zero exit status on issues found
-# nb: modernize is not part of golangci-lint yet - https://github.com/golangci/golangci-lint/issues/686	
+# nb: modernize is not part of golangci-lint yet - https://github.com/golangci/golangci-lint/issues/686
