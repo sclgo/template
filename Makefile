@@ -7,8 +7,8 @@ test:
 	go test -race -cover -covermode atomic -v -vet=all -timeout 15m -p 1\
 		./... \
 		-args -test.gocoverdir="${PWD}/coverage/covdata" \
-		| ts -s
-# NB: ts command requires moreutils package; awk trick from https://stackoverflow.com/a/25764579 doesn't stream output
+		| tools/ts -s
+
 	go tool covdata percent -i=./coverage/covdata
 	# Convert to old text format for coveralls upload
 	go tool covdata textfmt -i=./coverage/covdata -o ./coverage/covprofile
@@ -41,4 +41,4 @@ check_tidy:
 check_modern:
 	go run golang.org/x/tools/gopls/internal/analysis/modernize/cmd/modernize@v0.20.0 ./...
 # non-zero exit status on issues found
-# nb: modernize is not part of golangci-lint yet - https://github.com/golangci/golangci-lint/issues/686	
+# nb: modernize is not part of golangci-lint yet - https://github.com/golangci/golangci-lint/issues/686
