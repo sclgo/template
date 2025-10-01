@@ -1,4 +1,5 @@
 tools/ts:
+# ts is a perl script. perl is installed on most linux systems, and in ubuntu Github runners.
 	mkdir -p tools
 	curl -L -o tools/ts https://github.com/pgdr/moreutils/raw/a87889a3bf06fb6be6022b14c152f2f7de608910/ts
 	@echo "96a9504920a81570e0fc5df9c7a8be76b043261d9ed4a702af0238bdbe5ad5ea  tools/ts" | sha256sum --check --strict
