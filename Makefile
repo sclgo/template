@@ -61,4 +61,4 @@ tools/golangci-lint: tools
 # We install golangci-lint as recommended in the docs. See the same docs for a discussion about go run and
 # go get -tool alternatives - https://golangci-lint.run/docs/welcome/install/ .
 # Delete tools/golangci-lint if this target is updated (may be automated in the future)
-	curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/HEAD/install.sh | sh -s -- -b ./tools v2.5.0
+	curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/HEAD/install.sh | sh -s -- -b ./tools v2.11.4
