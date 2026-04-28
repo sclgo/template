@@ -41,9 +41,7 @@ check_tidy:
 
 .PHONY: check_modern
 check_modern:
-	go run golang.org/x/tools/gopls/internal/analysis/modernize/cmd/modernize@v0.20.0 ./...
-# non-zero exit status on issues found
-# nb: modernize is not part of golangci-lint yet - https://github.com/golangci/golangci-lint/issues/686
+	test -z $$(go fix -diff ./... | tee /dev/stderr)
 
 # Tools targets
 
