@@ -28,7 +28,7 @@ jobs:
           # When `install-mode` is `binary` (default) the value can be v1.2 or v1.2.3 or `latest` to use the latest version.
           # When `install-mode` is `goinstall` the value can be v1.2.3, `latest`, or the hash of a commit.
           # Version should be the same as in the Makefile
-          version: v2.11.4
+          version: v2.12.2
 
           # Optional: working directory, useful for monorepos
           # working-directory: somedir

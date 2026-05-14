@@ -34,7 +34,7 @@ checks: check_tidy check_vuln check_modern
 
 .PHONY: check_vuln
 check_vuln:
-	go run golang.org/x/vuln/cmd/govulncheck@v1.1.4 ./...
+	go run golang.org/x/vuln/cmd/govulncheck@v1.3.0 ./...
 # if we use more tools, we can switch to go tool -modfile=tools.mod
 # there is good discussion at https://news.ycombinator.com/item?id=42845323
 
@@ -63,4 +63,4 @@ tools/golangci-lint: tools
 # We install golangci-lint as recommended in the docs. See the same docs for a discussion about go run and
 # go get -tool alternatives - https://golangci-lint.run/docs/welcome/install/ .
 # Delete tools/golangci-lint if this target is updated (may be automated in the future)
-	curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/HEAD/install.sh | sh -s -- -b ./tools v2.11.4
+	curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/HEAD/install.sh | sh -s -- -b ./tools v2.12.2
